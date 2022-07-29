@@ -10,14 +10,16 @@ import java.util.Objects;
 @Table(name = "tb_course")
 public class Course implements Serializable {
     private static final long serialVersionUID = 1L;
-    @OneToMany(mappedBy = "course")
-    private final List<Offer> offers = new ArrayList<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String imgUri;
     private String imgGrayUri;
+
+    @OneToMany(mappedBy = "course")
+    private List<Offer> offers = new ArrayList<>();
 
     public Course() {
     }
